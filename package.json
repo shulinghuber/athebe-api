@@ -1,0 +1,22 @@
+{
+  "name": "athebe_api",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ./server.js",
+    "start:dev": "nodemon ./server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "joi": "^17.6.0",
+    "mysql2": "^2.3.3",
+    "rootpath": "^0.1.2",
+    "sequelize": "^6.15.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
