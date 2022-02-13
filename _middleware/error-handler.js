@@ -1,4 +1,3 @@
-
 function errorHandler(err, req, res, next) {
   switch (true) {
     case typeof err === 'string':
@@ -11,3 +10,4 @@ function errorHandler(err, req, res, next) {
 }
 
 module.exports = errorHandler;
+

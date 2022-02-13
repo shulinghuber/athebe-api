@@ -1,9 +1,16 @@
 ﻿const bcrypt = require('bcryptjs');
-const db = require('_helpers/db');
+const db = require('../_helpers/db');
 
 //
 // CRUD APIs
 //
+
+async function getUser(id) {
+  const user = await db.User.findByPk(id);
+  if (!user) throw 'User not found';
+  return user;
+}
+
 async function getById(id) {
   return await getUser(id);
 }
@@ -13,12 +20,15 @@ async function getAll() {
 }
 
 async function create(params) {
+    
   if (await db.User.findOne({ where: { email: params.email } })) {
     throw 'Email "' + params.email + '" is not available';
   }
   const user = new db.User(params);
   user.passwordHash = await bcrypt.hash(params.password, 10);
   await user.save();
+  
+  
 }
 
 async function update(id, params) {
@@ -45,11 +55,7 @@ async function _delete(id) {
 //
 // non export functions
 //
-async function getUser(id) {
-  const user = await db.User.findByPk(id);
-  if (!user) throw 'User not found';
-  return user;
-}
+
 
 module.exports = {   
   getById,

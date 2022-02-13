@@ -1,9 +1,9 @@
 ﻿const express = require('express');
 const router = express.Router();
 const Joi = require('joi');
-const validateRequest = require('_middleware/validate-request');
+const validateRequest = require('../_middleware/validate-request');
 const userService = require('./user.service');
-const Role = require('_helpers/role');
+const Role = require('../_helpers/role');
 
 //
 // routes
@@ -23,7 +23,7 @@ function getById(req, res, next) {
     .catch(next);
 }
 
-function getAll(req, res, next) {
+function getAll(req, res, next) {    
   userService.getAll()
     .then(users => res.json(users))
     .catch(next);

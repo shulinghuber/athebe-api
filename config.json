@@ -1,9 +1,9 @@
 ﻿{
   "database": {
-    "user": "root",
+    "user": "",
     "password": "",
     "host": "localhost",
     "port": 3306,
-    "database": "athebe-api"
+    "database": ""
   }
 }
